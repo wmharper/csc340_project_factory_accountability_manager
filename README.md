@@ -14,10 +14,14 @@ FAM
 ## Description
 
 Factory floor quality control/accountability manager software.
+
 Client: Large scale mass production, modeled after a cup factory but adaptable to other settings.
+
 This app is intended to streamline the production process and make it easier to 
 maintain accountability across a chaotic production environment.
+
 It accesses and changes an isolated database that is always available to users of the app.
+
 There are three different kinds of users:
       Employee: who is in charge of inspecting product as it goes down the line and disposing of 
       defective products as well as alerting supervisors of repeated defects
