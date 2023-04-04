@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import com.csc340sp23.fam3.Inspection.*;
 
 
 /**
@@ -43,6 +44,8 @@ public class FamController {
     
     @GetMapping("/employee")
     public String goEmployee(Model model) {
+        
+        model.addAttribute("inspectionList", famService.getAllInspections());
         return "fam/employee";
     }
     

@@ -41,7 +41,6 @@
                     flex-direction: row;
                     justify-content: space-between;
                     align-items: center;
-                    margin-top: 50px;
                     margin-left: 50px;
                     margin-right: 50px;
                 }
@@ -50,12 +49,14 @@
                     background-color: #eee;
                     padding: 20px;
                     border-radius: 10px;
+                top: 50;
                 }
                 .narrow {
                     width: 25%;
                     background-color: #ccc;
                     padding: 20px;
                     border-radius: 10px;
+                    top: 60;
                 }
                 .buttons {
                     display: flex;
@@ -80,6 +81,10 @@
                 .button:hover {
                     opacity: 1;
                 }
+                .table, th, td {
+                    border: 1px solid black;
+                    border-collapse: collapse;
+                }
             </style>
     </head>
     <body>
@@ -100,13 +105,15 @@
                         <button type="submit" class="btn btn-primary">Generate New Product</button>
                     </form>
                     <h1>Elements with a result value of -1:</h1>
-                    <table class="table table-bordered" style="border: 1px solid black;" border-collapse: separate;>
+                    <table class="table table-bordered" style="width:100%">
                         <thead>
                             <tr>
-                                <th>Timestamp</th>
-                                <th>Form</th>
-                                <th>Quality</th>
+                                <th style="width:25%">Timestamp</th>
+                                <th style="width:20%">Form</th>
+                                <th style="width:20%">Quality</th>
                                 <th>Result</th>
+                                <th>Pass</th>
+                                <th>Fail</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -115,6 +122,19 @@
                                 <td th:text="${inspection.form}"></td>
                                 <td th:text="${inspection.quality}"></td>
                                 <td th:text="${inspection.result}"></td>
+                                <td>
+                                    <form action="/inspection/pass-inspection" method="post">
+                                        <input type="hidden" name="id" th:value="${inspection.id}"/>
+                                        <button type="submit" class="button">Pass</button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form action="/inspection/fail-inspection" method="post">
+                                        <input type="hidden" name="id" th:value="${inspection.id}"/>
+                                        <button type="submit" class="button">Fail</button>
+                                    </form>
+                                </td>
+
                             </tr>
                         </tbody>
                     </table>

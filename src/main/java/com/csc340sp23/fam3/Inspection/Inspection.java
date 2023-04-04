@@ -1,5 +1,6 @@
 package com.csc340sp23.fam3.Inspection;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,6 +10,8 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Random;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -40,26 +43,9 @@ public class Inspection {
         Random random = new Random();
         this.form = Math.min(10, Math.abs(random.nextGaussian() + 8));
         this.quality = Math.min(10, Math.abs(random.nextGaussian() + 8));
-        
-        try {
-            URL url = new URL("http://worldtimeapi.org/api/timezone/Etc/UTC");
-            URLConnection conn = url.openConnection();
-            BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-            String inputLine;
-            StringBuffer response = new StringBuffer();
-            while ((inputLine = in.readLine()) != null) {
-                response.append(inputLine);
-            }
-            in.close();
-
-            String json = response.toString();
-            int start = json.indexOf("datetime") + 12;
-            int end = start + 19;
-            this.timestamp = json.substring(start, end);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        // Get the current system time and format it as a string
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        this.timestamp = formatter.format(new Date(System.currentTimeMillis()));
 
     }
 }

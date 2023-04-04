@@ -17,13 +17,35 @@ public class InspectionService {
 
     @Autowired
     private InspectionRepository repo;
-    
+
     public List<Inspection> getAllInspections() {
         return repo.findAll();
     }
 
     void saveInspection(Inspection inspection) {
         repo.save(inspection);
+    }
+
+    void passInspection(Long id) {
+        Inspection inspection = repo.findById(id).orElse(null);
+        if (inspection != null && inspection.getForm() >= 7 && inspection.getQuality() >= 7) {
+            inspection.setResult(2);
+            repo.save(inspection);
+        } else {
+            inspection.setResult(0);
+            repo.save(inspection);
+        }
+    }
+    
+    void failInspection(Long id) {
+        Inspection inspection = repo.findById(id).orElse(null);
+        if (inspection != null && (inspection.getForm() <= 7 || inspection.getQuality() <= 7) ) {
+            inspection.setResult(2);
+            repo.save(inspection);
+        } else {
+            inspection.setResult(1);
+            repo.save(inspection);
+        }
     }
 
 }
