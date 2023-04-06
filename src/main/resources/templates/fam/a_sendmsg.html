@@ -1,7 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
-	<meta charset="UTF-8">
+	<meta charset="UTF-8"/>
 	<title>Page Title</title>
 	<style>
 		body {
@@ -93,13 +96,23 @@
 	<main>
 		<div class="container">
 			<div class="wide">
-                            <h2>In this container,</h2>
-				<p>The administrator will be able to click a button 
-                                to send a boilerplate message to employees.</p>
-                                <p>They can also compose custom messages via an 
-                                an input box, to enable nuance in communication.</p>
-                                <p>All the functions available to a supervisor will 
-                                be available to an administrator as well.</p>
+                            <div style="align-content: center;">
+                                <form action="/message/create" method="post">
+                                    <div class="form-group">
+                                        <label for="recipient">Recipient: </label>
+                                        <input type="text" class="form-control" name="recipient" id="recipient" placeholder="Who you talking to">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="message_sender">Verification: </label>
+                                        <input type="text" class="form-control" name="messageSender" id="messageSender" placeholder="Who are you">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="message_body">Message: </label>
+                                        <input type="text" class="form-control" name="messageBody" id="messageBody" placeholder="What you saying">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </form>
+                            </div>
 			</div>
 			<div class="narrow">
                             <h1>Recent messages:</h1>
