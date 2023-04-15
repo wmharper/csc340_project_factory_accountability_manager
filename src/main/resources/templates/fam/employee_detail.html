@@ -88,26 +88,25 @@
 <body>
 	<header>
             <div class="header">
-		<h1>FAM: Administrator Dashboard</h1>
+		<h1>FAM: Employee Information</h1>
 	</div>
 		<div class="navbar">
 			<a th:href="@{/fam/}" class="button">Log Out</a>
                         <a th:href="@{/fam/admin_msg}" class="button">Send Message</a>
-                        <a th:href="@{/employeeDB/all}" class="button">View Database</a>
+                        <a th:href="@{/employeeDB/all}" class="button">Back to Line View</a>
 		</div>
 	</header>
 	<main>
 		<div class="container">
 			<div class="wide">
-                            <h2>In this container,</h2>
-				<p>the administrator is capable of seeing the status 
-                                of all the lines in the entire factory.</p>
-                                <p>This is has the same functionality as 
-                                the supervisor's line view, but it is assumed that the 
-                                supervisor will handle the issue first.</p>
-                                <p>For our purposes, all this does is 
-                                reseed the generator for the line, in the 
-                                hopes that it will run better after a restart.</p>
+                            <h5>Employee</h5>
+                            <p class="" th:text=" 'ID: '+ ${employeeDB.id}"></p>
+                            <p class="" th:text=" 'Name, First: '+ ${employeeDB.firstName}"></p>
+                            <p class="" th:text=" 'Name, Last: '+ ${employeeDB.lastName}"></p>
+                            <p class="" th:text=" 'Phone #: '+ ${employeeDB.phoneNum}"></p>
+                            <p class="" th:text=" 'Accuracy Score: '+ ${employeeDB.accScore}"></p>
+                            <a class="button" th:href="@{/employeeDB/update/id={id}(id=${employeeDB.id})}">Edit</a>
+                            <a class="button" th:href="@{/employeeDB/delete/id={id}(id=${employeeDB.id})}">Delete</a>
 			</div>
 			<div class="narrow">
                             <h1>Recent messages:</h1>

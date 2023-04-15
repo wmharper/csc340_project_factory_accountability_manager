@@ -131,8 +131,8 @@
 		</div>
             <br>
             <div class="navbar2">
+                        <a class="button" href="/employeeDB/new-employee">Add Employee</a>
 			<a class="button" href="#">Search for Employee</a>
-                        <a class="button" href="#">Edit Employee Record</a>
                         <a class="button" href="#">Recalculate Accuracy Score</a>
 		</div>
 	</header>
@@ -150,35 +150,27 @@
                                 to change, delete, or create new entries (such 
                                 as in the case of firing or hiring an employee).</p>
                                 <table>
-  <tr>
-    <th>Name, First</th>
-    <th>Name, Last</th>
-    <th>Phone #</th>
-    <th>Accuracy Score</th>
-    <th>Full Record</th>
-    
-  </tr>
-  <tr>
-    <td>Sally</td>
-    <td>Salmon</td>
-    <td>555-5555</td>
-    <td>60</td>
-    <td><a class="button" href="#">View</a></td>
-  </tr>
-  <tr>
-    <td>Bobby</td>
-    <td>Business-Time</td>
-    <td>555-5556</td>
-    <td>80</td>
-    <td><a class="button" href="#">View</a></td>
-  </tr>
-  <tr>
-    <td>Percy</td>
-    <td>Pierce</td>
-    <td>555-5557</td>
-    <td>95</td>
-    <td><a class="button" href="#">View</a></td>
-  </tr>
+  <thead>                  
+    <tr>
+      <th>Name, First</th>
+      <th>Name, Last</th>
+      <th>Phone #</th>
+      <th>Accuracy Score</th>
+      <th>Full Record</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:each = "employeeDB : ${employeeDBList}">
+      <td th:text=" ${employeeDB.firstName}"></td>
+      <td th:text=" ${employeeDB.lastName}"></td>
+      <td th:text=" ${employeeDB.phoneNum}"></td>
+      <td th:text=" ${employeeDB.accScore}"></td>
+      <td><a class="button" th:href="@{/employeeDB/id={id}(id=${employeeDB.id})}">View</a></td>
+    </tr>
+  </tbody>
+  
+  
 </table>
 			</div>
 		</div>
