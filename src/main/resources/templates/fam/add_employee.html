@@ -88,26 +88,37 @@
 <body>
 	<header>
             <div class="header">
-		<h1>FAM: Administrator Dashboard</h1>
+		<h1>FAM: Add Employee</h1>
 	</div>
 		<div class="navbar">
 			<a th:href="@{/fam/}" class="button">Log Out</a>
                         <a th:href="@{/fam/admin_msg}" class="button">Send Message</a>
-                        <a th:href="@{/employeeDB/all}" class="button">View Database</a>
+                        <a th:href="@{/employeeDB/all}" class="button">Back to Line View</a>
+                        
 		</div>
 	</header>
 	<main>
 		<div class="container">
 			<div class="wide">
-                            <h2>In this container,</h2>
-				<p>the administrator is capable of seeing the status 
-                                of all the lines in the entire factory.</p>
-                                <p>This is has the same functionality as 
-                                the supervisor's line view, but it is assumed that the 
-                                supervisor will handle the issue first.</p>
-                                <p>For our purposes, all this does is 
-                                reseed the generator for the line, in the 
-                                hopes that it will run better after a restart.</p>
+                            <form action="/employeeDB/create" method="post">
+                                <div class="">
+                                    <label for="first_name">Name, First:</label>
+                                    <input type="text" class="" name="firstName" id="firstName" placeholder="Enter first name"></input>
+                                </div>
+                                <div class="">
+                                    <label for="last_name">Name, Last:</label>
+                                    <input type="text" class="" name="lastName" id="lastName" placeholder="Enter last name"></input>
+                                </div>
+                                <div class="">
+                                    <label for="phone_num">Phone #:</label>
+                                    <input type="text" class="" name="phoneNum" id="phoneNum" placeholder="Enter phone number"></input>
+                                </div>
+                                <div class="">
+                                    <label for="acc_score">Accuracy Score:</label>
+                                    <input type="text" class="" name="accScore" id="accScore" placeholder="Enter accuracy score"></input>
+                                </div>
+                                <button type="submit" class="button">Submit</button>
+                            </form>
 			</div>
 			<div class="narrow">
                             <h1>Recent messages:</h1>

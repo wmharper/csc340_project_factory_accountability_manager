@@ -27,11 +27,6 @@ public class FamController {
         return "fam/home";
     }
     
-    @GetMapping("/admin_db")
-    public String goAdminDB(Model model) {
-        return "fam/a_database";
-    }
-    
     @GetMapping("/admin_msg")
     public String goAdminMSG(Model model) {
         return "fam/a_sendmsg";
