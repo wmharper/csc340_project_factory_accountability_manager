@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.cac340sp23.fam3.QuickMessage;
+package com.csc340sp23.fam3.QuickMessage;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,7 +22,7 @@ public class QuickMessageController {
     @Autowired
     QuickMessageService qmService;
 
-//    @GetMapping("/alert_supervisor")
+//    @GetMapping("/all")
 //    public String getQuickMessages(Model model) {
 //        return "redirect:/fam/employee_msg";
 //    }
@@ -36,12 +36,12 @@ public class QuickMessageController {
     @PostMapping("/alert_supervisor")
     public String createSupervisorAlert(QuickMessage qm){
         qmService.createSupervisorAlert(qm);
-        return "redirect:/qm/employee_msg";
+        return "redirect:/fam/employee_msg";
     }
     
     @PostMapping("/create_catfact")
     public String createCatFactMessage(QuickMessage qm){
         qmService.createCatFactQuickMessage(qm);
-        return "redirect:/qm/employee_msg";
+        return "redirect:/fam/employee_msg";
     }
 }

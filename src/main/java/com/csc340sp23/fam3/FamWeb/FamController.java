@@ -43,6 +43,8 @@ public class FamController {
     
     @GetMapping("/employee_msg")
     public String goEmployeeMSG(Model model) {
+        
+        model.addAttribute("qmList", famService.getAllQuickMessages());
         return "fam/employee_sendmsg";
     }
     

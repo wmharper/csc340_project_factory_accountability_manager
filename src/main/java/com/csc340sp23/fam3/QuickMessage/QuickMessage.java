@@ -1,4 +1,4 @@
-package com.cac340sp23.fam3.QuickMessage;
+package com.csc340sp23.fam3.QuickMessage;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
