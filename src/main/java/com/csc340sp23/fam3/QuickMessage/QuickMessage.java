@@ -1,4 +1,4 @@
-package com.csc340sp23.fam3.Inspection;
+package com.csc340sp23.fam3.QuickMessage;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -7,11 +7,15 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Random;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+
+/**
+ *
+ * @author Billy
+ */
 
 @AllArgsConstructor
 @Getter
@@ -19,28 +23,25 @@ import lombok.ToString;
 @ToString
 
 @Entity
-@Table(name = "inspection")
+@Table(name = "quickMessage")
 
-public class Inspection {
-
+public class QuickMessage {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private double form;
-    private double quality;
-    private int currentLine = 1;
-    private String timestamp = "";
-    private int result = -1;
-
-    public Inspection() {
-        // Generate form and quality values from a normal distribution with a mean of 8
-        Random random = new Random();
-        this.form = Math.min(10, Math.abs(random.nextGaussian() + 8));
-        this.quality = Math.min(10, Math.abs(random.nextGaussian() + 8));
-        // Get the current system time and format it as a string
+    private int sender;
+    private int reciever;
+    private String timestamp;
+    private String body;
+    
+    public QuickMessage() {
+        this.sender = -1;
+        this.reciever = -1;
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         this.timestamp = formatter.format(new Date(System.currentTimeMillis()));
-
+        this.body = "";
     }
+    
 }
