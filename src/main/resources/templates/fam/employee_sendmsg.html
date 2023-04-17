@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Page Title</title>
+        <title>FAM: Factory Accountability Manager</title>
         <style>
             body {
                 margin: 0;
@@ -115,17 +115,17 @@
                 </div>
                 <div class="narrow">
                     <h1>Recent messages:</h1>
-
-                    <h2>Message from John Johnson (Supervisor)</h2>
-                    <p>In this container, the employee is able to view
-                        messages sent to them by supervisors or administrators.</p>
-                    <p>Employees will primarily receive messages 
-                        from higher ranking employees notifying them
-                        if they need to meet with them.</p>
-                    <p>"I know you are the one eating my lunch, Sally.
-                        Meet me in my office after your shift is over."</p>
-
-                    <p>(received 9:15 AM, Feb 20 2016)</p>
+                    <table class="table table-bordered" style="width:100%">
+                        <tbody>
+                            <tr th:each="quickMessage : ${qmList}" th:if="${quickMessage.reciever}==1">
+                                <td>
+                                    <p><strong>From:</strong> <span th:text="${quickMessage.sender == 1 ? 'Employee' : quickMessage.sender == 2 ? 'Supervisor' : 'Administrator'}"></span></p>
+                                    <p><strong>Body:</strong> <span th:text="${quickMessage.body}"></span></p>
+                                    <p><strong>Timestamp:</strong> <span th:text="${quickMessage.timestamp}"></span></p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </main>

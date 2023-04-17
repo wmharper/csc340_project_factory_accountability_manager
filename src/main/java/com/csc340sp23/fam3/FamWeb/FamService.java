@@ -17,6 +17,7 @@ public class FamService {
 
     @Autowired
     private InspectionRepository repo;
+    @Autowired
     private QuickMessageRepository repo1;
 
     public List<Inspection> getAllInspections() {

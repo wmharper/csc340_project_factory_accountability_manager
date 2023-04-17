@@ -27,11 +27,11 @@ public class QuickMessageController {
 //        return "redirect:/fam/employee_msg";
 //    }
 
-    @PostMapping("/createmessage")
-    public String createQuickMessage(QuickMessage qm) {
-        qmService.saveQM(qm);
-        return "redirect:/fam/employee_msg";
-    }
+//    @PostMapping("/createmessage")
+//    public String createQuickMessage(QuickMessage qm) {
+//        qmService.saveQM(qm);
+//        return "redirect:/fam/employee_msg";
+//    }
 
     @PostMapping("/alert_supervisor")
     public String createSupervisorAlert(QuickMessage qm){
@@ -43,5 +43,29 @@ public class QuickMessageController {
     public String createCatFactMessage(QuickMessage qm){
         qmService.createCatFactQuickMessage(qm);
         return "redirect:/fam/employee_msg";
+    }
+    
+    @PostMapping("/create_meeting_request")
+    public String createMeetingRequest(QuickMessage qm){
+        qmService.createMeetingRequest(qm);
+        return "redirect:/fam/super_msg";
+    }
+    
+    @PostMapping("/create_kudos")
+    public String createKudos(QuickMessage qm){
+        qmService.createKudos(qm);
+        return "redirect:/fam/admin_msg";
+    }
+    
+    @PostMapping("/recommend_meeting")
+    public String recommendMeeting(QuickMessage qm){
+        qmService.recommendMeeting(qm);
+        return "redirect:/fam/admin_msg";
+    }
+    
+    @PostMapping("/recommend_firing")
+    public String recommendFiring(QuickMessage qm){
+        qmService.recommendFiring(qm);
+        return "redirect:/fam/super_msg";
     }
 }

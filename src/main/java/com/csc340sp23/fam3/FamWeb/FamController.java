@@ -21,21 +21,25 @@ public class FamController {
     
     @GetMapping({"/" , "/all", "/hello"})
     public String goHome(Model model) {
+        model.addAttribute("qmList", famService.getAllQuickMessages());
         return "fam/home";
     }
     
     @GetMapping("/admin_msg")
     public String goAdminMSG(Model model) {
+        model.addAttribute("qmList", famService.getAllQuickMessages());
         return "fam/a_sendmsg";
     }
     
     @GetMapping({"/admin", "/administrator"})
     public String goAdmin(Model model) {
+        model.addAttribute("qmList", famService.getAllQuickMessages());
         return "fam/admin";
     }
     
     @GetMapping("/employee")
     public String goEmployee(Model model) {
+        model.addAttribute("qmList", famService.getAllQuickMessages());
         
         model.addAttribute("inspectionList", famService.getAllInspections());
         return "fam/employee";
@@ -55,11 +59,13 @@ public class FamController {
     
     @GetMapping("/super_msg")
     public String goSuperMSG(Model model) {
+        model.addAttribute("qmList", famService.getAllQuickMessages());
         return "fam/supe_sendmsg";
     }
     
     @GetMapping("/supervisor")
     public String goSupervisor(Model model) {
+        model.addAttribute("qmList", famService.getAllQuickMessages());
         return "fam/supervisor";
     }
     
