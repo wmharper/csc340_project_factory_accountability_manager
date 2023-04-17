@@ -132,8 +132,7 @@
             <br>
             <div class="navbar2">
                         <a class="button" href="/employeeDB/new-employee">Add Employee</a>
-			<a class="button" href="#">Search for Employee</a>
-                        <a class="button" href="#">Recalculate Accuracy Score</a>
+			<a class="button" href="/employeeDB/search-employee">Search for Employee</a>
 		</div>
 	</header>
 	<main>
@@ -157,7 +156,7 @@
       <th>Phone #</th>
       <th>Accuracy Score</th>
       <th>Full Record</th>
-
+      <th>Recalculate Accuracy Score</th>
     </tr>
   </thead>
   <tbody>
@@ -167,6 +166,7 @@
       <td th:text=" ${employeeDB.phoneNum}"></td>
       <td th:text=" ${employeeDB.accScore}"></td>
       <td><a class="button" th:href="@{/employeeDB/id={id}(id=${employeeDB.id})}">View</a></td>
+      <td><a class="button">Recalculate</a></td>
     </tr>
   </tbody>
   

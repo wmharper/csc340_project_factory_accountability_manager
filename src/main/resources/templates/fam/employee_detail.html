@@ -18,6 +18,31 @@
 			height: 50px;
 			color: #fff;
 		}
+                table {
+                    border-collapse: collapse;
+                    width: 75%;
+                    border: 2px solid #333;
+                    margin: 20px 0;
+                    font-size: 16px;
+                }
+                /* Style for table headers */
+                th {
+                  background-color: #333;
+                  color: #fff;
+                  font-weight: bold;
+                  text-align: left;
+                  padding: 10px;
+                }
+
+                /* Style for table rows */
+                tr {
+                  border-bottom: 1px solid #ddd;
+                }
+
+                /* Style for table cells */
+                td {
+                  padding: 10px;
+                }
                 .header {
 			text-align: center;
 			font-size: 24px;
@@ -83,12 +108,17 @@
 		.button:hover {
 			opacity: 1;
 		}
+                
+                .top_right {
+                    float: right;
+                    margin-top: 35px;
+                }
 	</style>
 </head>
 <body>
 	<header>
             <div class="header">
-		<h1>FAM: Employee Information</h1>
+		<h1>FAM: Employee's Inspection Record</h1>
 	</div>
 		<div class="navbar">
 			<a th:href="@{/fam/}" class="button">Log Out</a>
@@ -99,14 +129,50 @@
 	<main>
 		<div class="container">
 			<div class="wide">
-                            <h5>Employee</h5>
-                            <p class="" th:text=" 'ID: '+ ${employeeDB.id}"></p>
-                            <p class="" th:text=" 'Name, First: '+ ${employeeDB.firstName}"></p>
-                            <p class="" th:text=" 'Name, Last: '+ ${employeeDB.lastName}"></p>
-                            <p class="" th:text=" 'Phone #: '+ ${employeeDB.phoneNum}"></p>
-                            <p class="" th:text=" 'Accuracy Score: '+ ${employeeDB.accScore}"></p>
-                            <a class="button" th:href="@{/employeeDB/update/id={id}(id=${employeeDB.id})}">Edit</a>
-                            <a class="button" th:href="@{/employeeDB/delete/id={id}(id=${employeeDB.id})}">Delete</a>
+                            <table>
+                            <thead>                  
+                              <tr>
+                                <th>Id</th>
+                                <th>Name, First</th>
+                                <th>Name, Last</th>
+                                <th>Phone #</th>
+                                <th>Accuracy Score</th>
+
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td th:text=" ${employeeDB.id}"></td>
+                                <td th:text=" ${employeeDB.firstName}"></td>
+                                <td th:text=" ${employeeDB.lastName}"></td>
+                                <td th:text=" ${employeeDB.phoneNum}"></td>
+                                <td th:text=" ${employeeDB.accScore}"></td>
+                                <a class="button top_right" th:href="@{/employeeDB/update/id={id}(id=${employeeDB.id})}">Edit</a>
+                                <a class="button top_right" th:href="@{/employeeDB/delete/id={id}(id=${employeeDB.id})}">Delete</a>
+                              </tr>
+                            </tbody>
+                            </table>
+                            
+                            <table class="table table-bordered" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th style="width:25%">Timestamp</th>
+                                        <th style="width:20%">Form</th>
+                                        <th style="width:20%">Quality</th>
+                                        <th>Result</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="inspection : ${inspectionList}">
+                                        <td th:text="${inspection.timestamp}"></td>
+                                        <td th:text="${inspection.form}"></td>
+                                        <td th:text="${inspection.quality}"></td>
+                                        <td th:text="${inspection.result}"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            
+                            
 			</div>
 			<div class="narrow">
                             <h1>Recent messages:</h1>
