@@ -28,7 +28,7 @@ public class EmployeeDB {
     private String firstName;
     private String lastName;
     private String phoneNum;
-    private long accScore;
+    private long accScore = -1;
 
     public EmployeeDB(String firstName, String lastName, String phoneNum, long accScore) {
         this.firstName = firstName;
