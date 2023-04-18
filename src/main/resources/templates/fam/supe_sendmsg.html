@@ -97,18 +97,18 @@
 		<div class="container">
 			<div class="wide">
                             <div style="align-content: center;">
-                                <form action="/message/create" method="post">
+                                <form action="/message/cs" method="post">
                                     <div class="form-group">
                                         <label for="recipient">Recipient: </label>
-                                        <input type="text" class="form-control" name="recipient" id="recipient" placeholder="Who you talking to">
+                                        <input type="text" class="form-control" name="recipient" id="recipient" placeholder="Who you talking to"/>
                                     </div>
                                     <div class="form-group">
                                         <label for="message_sender">Verification: </label>
-                                        <input type="text" class="form-control" name="messageSender" id="messageSender" placeholder="Who are you">
+                                        <input type="text" class="form-control" name="messageSender" id="messageSender" placeholder="Who are you"/>
                                     </div>
                                     <div class="form-group">
                                         <label for="message_body">Message: </label>
-                                        <input type="text" class="form-control" name="messageBody" id="messageBody" placeholder="What you saying">
+                                        <input type="text" class="form-control" name="messageBody" id="messageBody" placeholder="What you saying"/>
                                     </div>
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </form>
@@ -116,6 +116,16 @@
 			</div>
 			<div class="narrow">
                             <h1>Recent messages:</h1>
+                                <table>
+                                    <tr th:each="message : ${messageList}">
+                                        <td th:text="Message from ${message.recipient}."/>
+                                        <td th:text="${message.messageBody}."/>
+                                        <td th:text="received (${message.timestamp})."/>
+                                    </tr>
+                                        <form action="/message/rs/id={id}(id=${message.id})}" method="post">
+                                            <button type="submit" class="btn btn-primary">Read</button>
+                                        </form>
+                                </table>
                             
                             <h2>Message from Bobby Business-Time (Employee)</h2>
 				<p>In this container, the employee is able to view

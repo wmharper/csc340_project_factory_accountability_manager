@@ -41,15 +41,36 @@ public class MessageRepository {
         // Sort by unread, cross-referenced by time
         return newMessages;
     }
+    
+    public Message messageById(long id) {
+        SqlParameterSource namedParameters = new MapSqlParameterSource().addValue(
+                "id", id);
+        String query = "select * from user where id=:id ";
+        return structure.queryForObject(query, namedParameters,
+                BeanPropertyRowMapper.newInstance(Message.class));
+    }
 
     public int sendMessage(Message note) {
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("recipient", note.getRecipient());
         paramMap.put("timestamp", note.getTimestamp());
+        System.out.println(note.getTimestamp());
         paramMap.put("message_sender", note.getMessageSender());
         paramMap.put("read_or_unread", note.isReadOrUnread());
         paramMap.put("message_body", note.getMessageBody());
         String query = "INSERT INTO message(recipient,timestamp,message_sender,read_or_unread,message_body) VALUES(:recipient, :timestamp, :message_sender, :read_or_unread, :message_body)";
         return structure.update(query, paramMap);
+    }
+    
+    public void readMessage(Message note) {
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("id", note.getId());
+        paramMap.put("recipient", note.getRecipient());
+        paramMap.put("timestamp", note.getTimestamp());
+        paramMap.put("message_sender", note.getMessageSender());
+        paramMap.put("read_or_unread", 1);
+        paramMap.put("message_body", note.getMessageBody());
+        String query = "update message set read_or_unread=1 where id=:id";
+        structure.update(query, paramMap);
     }
 }
