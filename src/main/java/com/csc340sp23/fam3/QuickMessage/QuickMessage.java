@@ -1,5 +1,6 @@
 package com.csc340sp23.fam3.QuickMessage;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -34,6 +35,7 @@ public class QuickMessage {
     private int sender;
     private int reciever;
     private String timestamp;
+    @Column(name = "body", length = 1000)
     private String body;
     
     public QuickMessage() {
