@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Page Title</title>
+	<title>FAM: Factory Accountability Manager</title>
 	<style>
 		body {
 			margin: 0;
@@ -166,7 +166,7 @@
       <td th:text=" ${employeeDB.phoneNum}"></td>
       <td th:text=" ${employeeDB.accScore}"></td>
       <td><a class="button" th:href="@{/employeeDB/id={id}(id=${employeeDB.id})}">View</a></td>
-      <td><a class="button">Recalculate</a></td>
+      <td><a class="button" th:href="@{/employeeDB/recalculate/id={id}(id=${employeeDB.id})}">Recalculate</a></td>
     </tr>
   </tbody>
   

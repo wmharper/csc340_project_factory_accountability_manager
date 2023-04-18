@@ -5,7 +5,7 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
     <head>
         <meta charset="UTF-8">
-            <title>Page Title</title>
+            <title>FAM: Factory Accountability Manager</title>
             <style>
                 body {
                     margin: 0;
@@ -41,21 +41,29 @@
                     flex-direction: row;
                     justify-content: space-between;
                     align-items: center;
-                    margin-top: 50px;
                     margin-left: 50px;
                     margin-right: 50px;
                 }
                 .wide {
                     width: 75%;
+                    height: 600px;
+                    overflow: auto;
+                    overflow-y: scroll;
                     background-color: #eee;
                     padding: 20px;
                     border-radius: 10px;
+                    top: 50;
                 }
+
                 .narrow {
                     width: 25%;
+                    height: 600px;
+                    overflow: auto;
+                    overflow-y: scroll;
                     background-color: #ccc;
                     padding: 20px;
                     border-radius: 10px;
+                    top: 60;
                 }
                 .buttons {
                     display: flex;
@@ -79,6 +87,10 @@
                 }
                 .button:hover {
                     opacity: 1;
+                }
+                .table, th, td {
+                    border: 1px solid black;
+                    border-collapse: collapse;
                 }
             </style>
     </head>

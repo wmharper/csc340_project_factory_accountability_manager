@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Page Title</title>
+	<title>FAM: Factory Accountability Manager</title>
 	<style>
 		body {
 			margin: 0;
@@ -93,7 +93,7 @@
 		<div class="navbar">
 			<a th:href="@{/fam/}" class="button">Log Out</a>
                         <a th:href="@{/fam/admin_msg}" class="button">Send Message</a>
-                        <a th:href="@{/employeeDB/id={id}}" class="button">Back to Line View</a>
+                        <a th:href="@{/employeeDB/id={id}(id=${employeeDB.id})}" class="button">Back to Line View</a>
 		</div>
 	</header>
 	<main>

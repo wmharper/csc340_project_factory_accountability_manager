@@ -1,5 +1,0 @@
-# Created at 2023-04-18T09:02:13.079
-Boot Manifest-JAR contains absolute paths in classpath 'H:\다른 컴퓨터\내 iMac\성균관대학교\교환학생\CSC340\workspace\fam\csc340_project_factory_accountability_manager-2ndUseCase\csc340_project_factory_accountability_manager-main\target\test-classes'
-Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
-'other' has different root
-

@@ -103,33 +103,36 @@
         <main>
             <div class="container">
                 <div class="wide">
-                    <h2>In this container,</h2>
-                    <p>The supervisor will be able to click a button 
-                        to send a boilerplate message to employees.</p>
+                    <h2>Send Pre-made Messages</h2>
                     <form action="/qm/create_meeting_request" method="post">
                         <button type="submit" class="btn btn-primary">Request a Meeting with your Inspector</button>
                     </form>
+                    <p>Click this button to send a message to your employee,
+                        requesting a meeting after their shift.</p>
                     <form action="/qm/recommend_firing" method="post">
                         <button type="submit" class="btn btn-primary">Recommend that your Inspector be fired</button>
                     </form>
-                    <p>They can also compose custom messages via an 
-                        an input box, to enable nuance in communication.</p>
-                                                        <form action="/message/create" method="post">
+                    <p>Click this button to send a message to your database 
+                        administrator, if you have tried to address an employee's 
+                        performance issues, failed, and want to suggest firing them 
+                        (removing them from the database).</p>
+                    <h2>Supervisors can send custom messages:</h2>
+                    <form action="/message/create" method="post">
 
-                                    <div class="form-group">
-                                        <label for="recipient">Recipient: </label>
-                                        <input type="text" class="form-control" name="recipient" id="recipient" placeholder="Who you talking to"/>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="message_sender">Verification: </label>
-                                        <input type="text" class="form-control" name="messageSender" id="messageSender" placeholder="Who are you"/>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="message_body">Message: </label>
-                                        <input type="text" class="form-control" name="messageBody" id="messageBody" placeholder="What you saying"/>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </form>
+                        <div class="form-group">
+                            <label for="recipient">Recipient: </label>
+                            <input type="text" class="form-control" name="recipient" id="recipient" placeholder="Who you talking to"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="message_sender">Verification: </label>
+                            <input type="text" class="form-control" name="messageSender" id="messageSender" placeholder="Who are you"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="message_body">Message: </label>
+                            <input type="text" class="form-control" name="messageBody" id="messageBody" placeholder="What you saying"/>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
 
                 </div>
                 <div class="narrow">
