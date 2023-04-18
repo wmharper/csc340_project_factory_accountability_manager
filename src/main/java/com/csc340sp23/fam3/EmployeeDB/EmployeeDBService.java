@@ -14,7 +14,7 @@ public class EmployeeDBService {
     @Autowired
     EmployeeDBRepository repo;
 
-    List<EmployeeDB> getAllEmployees() {
+    public List<EmployeeDB> getAllEmployees() {
         return repo.findAll();
     }
 

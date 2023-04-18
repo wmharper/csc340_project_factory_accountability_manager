@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head>
+        <meta charset="UTF-8">
+            <title>Page Title</title>
+            <style>
+                body {
+                    margin: 0;
+                    padding: 0;
+                    background-color: #fff;
+                    font-family: Arial, sans-serif;
+                }
+                .navbar {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: #333;
+                    height: 50px;
+                    color: #fff;
+                }
+                .header {
+                    text-align: center;
+                    font-size: 24px;
+                    font-weight: bold;
+                    padding: 20px;
+                    background-color: #333;
+                    color: #fff;
+                }
+                .navbar a {
+                    margin: 0 10px;
+                    color: #fff;
+                    text-decoration: none;
+                    font-size: 18px;
+                    font-weight: bold;
+                }
+                .container {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-left: 50px;
+                    margin-right: 50px;
+                }
+                .wide {
+                    width: 75%;
+                    background-color: #eee;
+                    padding: 20px;
+                    border-radius: 10px;
+                top: 50;
+                }
+                .narrow {
+                    width: 25%;
+                    background-color: #ccc;
+                    padding: 20px;
+                    border-radius: 10px;
+                    top: 60;
+                }
+                .buttons {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                }
+                .button {
+                    margin: 0 10px;
+                    padding: 10px 20px;
+                    border: none;
+                    border-radius: 5px;
+                    color: #fff;
+                    background-color: rgba(0, 0, 0, 0.8);
+                    font-size: 18px;
+                    font-weight: bold;
+                    text-align: center;
+                    text-decoration: none;
+                    opacity: 0.8;
+                    transition: opacity 0.3s ease;
+                }
+                .button:hover {
+                    opacity: 1;
+                }
+                .table, th, td {
+                    border: 1px solid black;
+                    border-collapse: collapse;
+                }
+            </style>
+    </head>
+    <body>
+        <header>
+            <div class="header">
+                <h1>FAM: Employee Dashboard</h1>
+            </div>
+            <div class="navbar">
+                <a th:href="@{/fam/}" class="button">Log Out</a>
+                <a th:href="@{/fam/employee_msg}" class="button">Send Message</a>
+            </div>
+        </header>
+        <main>
+            <div class="container">
+                <div class="wide">
+
+                    <form action="/inspection/create" method="post">
+                        <button type="submit" class="btn btn-primary">Generate New Product</button>
+                    </form>
+                    <h1>Elements with a result value of -1:</h1>
+                    <table class="table table-bordered" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th style="width:25%">Timestamp</th>
+                                <th style="width:20%">Form</th>
+                                <th style="width:20%">Quality</th>
+                                <th>Result</th>
+                                <th>Pass</th>
+                                <th>Fail</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="inspection : ${inspectionList}" th:if="${inspection.result}==-1">
+                                <td th:text="${inspection.timestamp}"></td>
+                                <td th:text="${inspection.form}"></td>
+                                <td th:text="${inspection.quality}"></td>
+                                <td th:text="${inspection.result}"></td>
+                                <td>
+                                    <form action="/inspection/pass-inspection" method="post">
+                                        <input type="hidden" name="id" th:value="${inspection.id}"/>
+                                        <button type="submit" class="button">Pass</button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form action="/inspection/fail-inspection" method="post">
+                                        <input type="hidden" name="id" th:value="${inspection.id}"/>
+                                        <button type="submit" class="button">Fail</button>
+                                    </form>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="narrow">
+                    <h1>Recent messages:</h1>
+
+                    <h2>Message from John Johnson (Supervisor)</h2>
+                    <p>In this container, the employee is able to view
+                        messages sent to them by supervisors or administrators.</p>
+                    <p>Employees will primarily receive messages 
+                        from higher ranking employees notifying them
+                        if they need to meet with them.</p>
+                    <p>"I know you are the one eating my lunch, Sally.
+                        Meet me in my office after your shift is over."</p>
+
+                    <p>(received 9:15 AM, Feb 20 2016)</p>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

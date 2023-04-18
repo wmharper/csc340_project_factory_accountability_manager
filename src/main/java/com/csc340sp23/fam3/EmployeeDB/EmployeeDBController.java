@@ -1,6 +1,8 @@
 package com.csc340sp23.fam3.EmployeeDB;
 
+import com.csc340sp23.fam3.Inspection.Inspection;
 import com.csc340sp23.fam3.Inspection.InspectionService;
+import com.csc340sp23.fam3.Inspection.InspectionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +21,7 @@ public class EmployeeDBController {
     
     @Autowired
     private EmployeeDBService service;
+    @Autowired
     private InspectionService ins_service;
 
     @GetMapping("/all")
@@ -32,6 +35,13 @@ public class EmployeeDBController {
         model.addAttribute("employeeDB", service.getEmployee(id));
         model.addAttribute("inspectionList", ins_service.getAllInspections());
         return "fam/employee_detail";
+    }
+    
+    @GetMapping("/sup/id={id}")
+    public String supGetEmployee(@PathVariable long id, Model model) {
+        model.addAttribute("employeeDB", service.getEmployee(id));
+        model.addAttribute("inspectionList", ins_service.getAllInspections());
+        return "fam/employee_detail_s";
     }
 
     @GetMapping("/delete/id={id}")
@@ -62,11 +72,15 @@ public class EmployeeDBController {
         model.addAttribute("employeeDB", service.getEmployee(id));
         return "fam/edit_employee";
     }
-     
+    
     @GetMapping("/search-employee")
     public String searchEmloyeeForm(Model model) {
         return "fam/search_employee";
     }
     
+    @GetMapping("/sup/search-employee")
+    public String supSearchEmloyeeForm(Model model) {
+        return "fam/search_employee_s";
+    }
+    
 }
-

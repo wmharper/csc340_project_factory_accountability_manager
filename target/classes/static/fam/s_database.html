@@ -124,13 +124,13 @@
 		<h1>FAM: Supervisor Database View</h1>
 	</div>
 		<div class="navbar">
-			<a th:href="@{/fam/}" class="button">Log Out</a>
-                        <a th:href="@{/fam/super_msg}" class="button">Send Message</a>
-                        <a th:href="@{/fam/supervisor}" class="button">Back to Line View</a>
+			<a class="button" href="http://localhost:8080/fam/home.html">Log Out</a>
+			<a class="button" href="http://localhost:8080/fam/supe_sendmsg.html">Send Message</a>
+                        <a class="button" href="http://localhost:8080/fam/supervisor.html">Back to Line View</a>
 		</div>
             <br>
             <div class="navbar2">
-			<a class="button" href="/employeeDB/sup/search-employee">Search for Employee</a>
+			<a class="button" href="#">Search for Employee</a>
 		</div>
 	</header>
 	<main>
@@ -146,21 +146,34 @@
                                 which contains the results from their last 300 
                                 inspections.</p>
                                 <table>
-  <thead><tr>
+  <tr>
     <th>Name, First</th>
     <th>Name, Last</th>
     <th>Phone #</th>
     <th>Accuracy Score</th>
     <th>Full Record</th>
     
-  </tr></thead>
-  <tbody>
-  <tr th:each = "employeeDB : ${employeeDBList}">
-      <td th:text=" ${employeeDB.firstName}"></td>
-      <td th:text=" ${employeeDB.lastName}"></td>
-      <td th:text=" ${employeeDB.phoneNum}"></td>
-      <td th:text=" ${employeeDB.accScore}"></td>
-      <td><a class="button" th:href="@{/employeeDB/sup/id={id}(id=${employeeDB.id})}">View</a></td>
+  </tr>
+  <tr>
+    <td>Sally</td>
+    <td>Salmon</td>
+    <td>555-5555</td>
+    <td>60</td>
+    <td><a class="button" href="#">View</a></td>
+  </tr>
+  <tr>
+    <td>Bobby</td>
+    <td>Business-Time</td>
+    <td>555-5556</td>
+    <td>80</td>
+    <td><a class="button" href="#">View</a></td>
+  </tr>
+  <tr>
+    <td>Percy</td>
+    <td>Pierce</td>
+    <td>555-5557</td>
+    <td>95</td>
+    <td><a class="button" href="#">View</a></td>
   </tr>
 </table>
 			</div>
