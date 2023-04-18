@@ -68,4 +68,12 @@ public class EmployeeDBRepository {
         String query = "update employeeDB set first_name=:first_name, last_name=:last_name, phone_num=:phone_num, acc_score=:acc_score where id=:id ";
         template.update(query, paramMap);
     }
+    
+    void updateScore(EmployeeDB employee, int num) {
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("id", employee.getId());
+        paramMap.put("acc_score", num);
+        String query = "update employeeDB set acc_score=:acc_score where id=:id ";
+        template.update(query, paramMap);
+    }
 }

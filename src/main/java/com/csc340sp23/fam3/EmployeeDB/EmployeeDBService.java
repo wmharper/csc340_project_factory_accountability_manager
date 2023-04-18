@@ -21,6 +21,10 @@ public class EmployeeDBService {
     Object getEmployee(long id) {
         return repo.getEmployeeById(id);
     }
+    
+    EmployeeDB getEmployeeById(long id) {
+        return repo.getEmployeeById(id);
+    }
 
     void deleteEmployee(long id) {
         repo.deleteEmployeeById(id);
@@ -32,5 +36,9 @@ public class EmployeeDBService {
 
     void updateEmployee(EmployeeDB employee) {
         repo.updateEmployee(employee);
+    }
+    
+    void updateScore(EmployeeDB employee, int num) {
+        repo.updateScore(employee, num);
     }
 }

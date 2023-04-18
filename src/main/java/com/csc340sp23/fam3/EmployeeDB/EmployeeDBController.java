@@ -83,4 +83,16 @@ public class EmployeeDBController {
         return "fam/search_employee_s";
     }
     
+    @GetMapping("/recalculate/id={id}")
+    public String recalculateScore(@PathVariable long id, Model model) {
+        service.updateScore(service.getEmployeeById(id), ins_service.recalculate(ins_service.getAllInspections()));
+        return "redirect:/employeeDB/all";
+    }
+    
+    @GetMapping("/recalculate/detail/id={id}")
+    public String recalculateScore1(@PathVariable long id, Model model) {
+        service.updateScore(service.getEmployeeById(id), ins_service.recalculate(ins_service.getAllInspections()));
+        return "redirect:/employeeDB/id={id}";
+    }
+    
 }
