@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Page Title</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: #fff;
+			font-family: Arial, sans-serif;
+		}
+		.navbar {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: #333;
+			height: 50px;
+			color: #fff;
+		}
+                .header {
+			text-align: center;
+			font-size: 24px;
+			font-weight: bold;
+			padding: 20px;
+			background-color: #333;
+			color: #fff;
+		}
+		.navbar a {
+			margin: 0 10px;
+			color: #fff;
+			text-decoration: none;
+			font-size: 18px;
+			font-weight: bold;
+		}
+		.container {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+			margin-top: 50px;
+			margin-left: 50px;
+			margin-right: 50px;
+		}
+                .data {
+                    width: 100%;
+                    background-color: #eee;
+                    padding: 20px;
+                    border-radius: 10px;
+                }
+		.wide {
+			width: 75%;
+			background-color: #eee;
+			padding: 20px;
+			border-radius: 10px;
+		}
+		.narrow {
+			width: 25%;
+			background-color: #ccc;
+			padding: 20px;
+			border-radius: 10px;
+		}
+                .buttons {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+		}
+		.button {
+			margin: 0 10px;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			color: #fff;
+			background-color: rgba(0, 0, 0, 0.8);
+			font-size: 18px;
+			font-weight: bold;
+			text-align: center;
+			text-decoration: none;
+			opacity: 0.8;
+			transition: opacity 0.3s ease;
+		}
+		.button:hover {
+			opacity: 1;
+		}
+	</style>
+</head>
+<body>
+	<header>
+            <div class="header">
+		<h1>FAM: Administrator Dashboard</h1>
+	</div>
+		<div class="navbar">
+			<a th:href="@{/fam/}" class="button">Log Out</a>
+                        <a th:href="@{/fam/admin_msg}" class="button">Send Message</a>
+                        <a th:href="@{/employeeDB/all}" class="button">View Database</a>
+		</div>
+	</header>
+	<main>
+		<div class="container">
+			<div class="wide">
+                            <h2>In this container,</h2>
+				<p>the administrator is capable of seeing the status 
+                                of all the lines in the entire factory.</p>
+                                <p>This is has the same functionality as 
+                                the supervisor's line view, but it is assumed that the 
+                                supervisor will handle the issue first.</p>
+                                <p>For our purposes, all this does is 
+                                reseed the generator for the line, in the 
+                                hopes that it will run better after a restart.</p>
+			</div>
+			<div class="narrow">
+                            <h1>Recent messages:</h1>
+                            
+                            <h2>Message from John Johnson (Supervisor)</h2>
+				<p>In this container, the administrator can see 
+                                messages, mainly from supervisors. </p>
+                                <p>An administrator may receive messages 
+                                in situations such as when an employee has been 
+                                confronted about their low performance and not 
+                                improved, and that the administrator should 
+                                consider firing them (or removing them from the 
+                                database).</p>
+                                <p>"I've tried everything I can to help Sally Salmon,
+                                but her performance has remained poor for weeks. 
+                                I recommend firing her."</p>
+                                
+                                <p>(received 11:00 AM, Feb 20 2016)</p>
+                                
+                                
+			</div>
+		</div>
+	</main>
+</body>
+</html>
