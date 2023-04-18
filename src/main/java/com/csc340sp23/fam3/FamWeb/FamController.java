@@ -1,5 +1,6 @@
 package com.csc340sp23.fam3.FamWeb;
 
+import com.csc340sp23.fam3.EmployeeDB.EmployeeDBService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +19,8 @@ public class FamController {
     
     @Autowired
     FamService famService;
+    @Autowired
+    private EmployeeDBService dbservice;
     
     @GetMapping({"/" , "/all", "/hello"})
     public String goHome(Model model) {
@@ -54,6 +57,7 @@ public class FamController {
     
     @GetMapping("/super_db")
     public String goSuperDB(Model model) {
+        model.addAttribute("employeeDBList", dbservice.getAllEmployees());
         return "fam/s_database";
     }
     

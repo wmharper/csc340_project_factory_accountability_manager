@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>FAM: Factory Accountability Manager</title>
+	<title>Page Title</title>
 	<style>
 		body {
 			margin: 0;
@@ -20,7 +20,7 @@
 		}
                 table {
                     border-collapse: collapse;
-                    width: 75%;
+                    width: 100%;
                     border: 2px solid #333;
                     margin: 20px 0;
                     font-size: 16px;
@@ -122,8 +122,8 @@
 	</div>
 		<div class="navbar">
 			<a th:href="@{/fam/}" class="button">Log Out</a>
-                        <a th:href="@{/fam/admin_msg}" class="button">Send Message</a>
-                        <a th:href="@{/employeeDB/all}" class="button">Back to Line View</a>
+                        <a th:href="@{/fam/super_msg}" class="button">Send Message</a>
+                        <a th:href="@{/fam/super_db}" class="button">Back to Line View</a>
 		</div>
 	</header>
 	<main>
@@ -147,8 +147,6 @@
                                 <td th:text=" ${employeeDB.lastName}"></td>
                                 <td th:text=" ${employeeDB.phoneNum}"></td>
                                 <td th:text=" ${employeeDB.accScore}"></td>
-                                <a class="button top_right" th:href="@{/employeeDB/update/id={id}(id=${employeeDB.id})}">Edit</a>
-                                <a class="button top_right" th:href="@{/employeeDB/delete/id={id}(id=${employeeDB.id})}">Delete</a>
                               </tr>
                             </tbody>
                             </table>
@@ -169,7 +167,6 @@
                                         <td th:text="${inspection.quality}"></td>
                                         <td th:text="${inspection.result}"></td>
                                     </tr>
-                                    <a class="button top_right" th:href="@{/employeeDB/recalculate/detail/id={id}(id=${employeeDB.id})}">Recalculate</a>
                                 </tbody>
                             </table>
                             

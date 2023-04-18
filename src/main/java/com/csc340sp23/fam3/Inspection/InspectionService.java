@@ -47,5 +47,14 @@ public class InspectionService {
             repo.save(inspection);
         }
     }
+    
+    public int recalculate(List<Inspection> inspectionList) {
+        int count = (int)repo.count();
+        int sum = 0;
+        for(Inspection inspection:inspectionList){
+            sum += inspection.getResult();
+        }
+        return sum/count + 50;
+    }
 
 }

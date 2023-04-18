@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>FAM: Factory Accountability Manager</title>
+	<title>Page Title</title>
 	<style>
 		body {
 			margin: 0;
@@ -121,56 +121,60 @@
 <body>
 	<header>
             <div class="header">
-		<h1>FAM: Administrator Database View</h1>
+		<h1>FAM: Supervisor Database View</h1>
 	</div>
 		<div class="navbar">
-			<a th:href="@{/fam/}" class="button">Log Out</a>
-                        <a th:href="@{/fam/admin_msg}" class="button">Send Message</a>
-                        <a th:href="@{/fam/admin}" class="button">Back to Line View</a>
-                        
+			<a class="button" href="http://localhost:8080/fam/home.html">Log Out</a>
+			<a class="button" href="http://localhost:8080/fam/supe_sendmsg.html">Send Message</a>
+                        <a class="button" href="http://localhost:8080/fam/supervisor.html">Back to Line View</a>
 		</div>
             <br>
             <div class="navbar2">
-                        <a class="button" href="/employeeDB/new-employee">Add Employee</a>
-			<a class="button" href="/employeeDB/search-employee">Search for Employee</a>
+			<a class="button" href="#">Search for Employee</a>
 		</div>
 	</header>
 	<main>
 		<div class="container">
 			<div class="data">
                             <h2>In this container,</h2>
-				<p>you will see the admin view of the employee 
-                                database. The admin has access to all crud functions 
-                                that are visible in the secondary nav bar.</p>
-                                <p>There are also functions available to the admin 
-                                that will recalculate an employee's "Accuracy Score" 
-                                based on their most recent records. </p>
-                                <p>They have access to all CRUD functions, able 
-                                to change, delete, or create new entries (such 
-                                as in the case of firing or hiring an employee).</p>
+				<p>you will see the supervisor view of the employee 
+                                database. The supervisor has no ability to change 
+                                the entries, but they will be able to search for employees 
+                                by clicking the button on the above taskbar.</p>
+                                <p>In each entry there will be a button you can click 
+                                to view the employee's entire inspection record, 
+                                which contains the results from their last 300 
+                                inspections.</p>
                                 <table>
-  <thead>                  
-    <tr>
-      <th>Name, First</th>
-      <th>Name, Last</th>
-      <th>Phone #</th>
-      <th>Accuracy Score</th>
-      <th>Full Record</th>
-      <th>Recalculate Accuracy Score</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr th:each = "employeeDB : ${employeeDBList}">
-      <td th:text=" ${employeeDB.firstName}"></td>
-      <td th:text=" ${employeeDB.lastName}"></td>
-      <td th:text=" ${employeeDB.phoneNum}"></td>
-      <td th:text=" ${employeeDB.accScore}"></td>
-      <td><a class="button" th:href="@{/employeeDB/id={id}(id=${employeeDB.id})}">View</a></td>
-      <td><a class="button" th:href="@{/employeeDB/recalculate/id={id}(id=${employeeDB.id})}">Recalculate</a></td>
-    </tr>
-  </tbody>
-  
-  
+  <tr>
+    <th>Name, First</th>
+    <th>Name, Last</th>
+    <th>Phone #</th>
+    <th>Accuracy Score</th>
+    <th>Full Record</th>
+    
+  </tr>
+  <tr>
+    <td>Sally</td>
+    <td>Salmon</td>
+    <td>555-5555</td>
+    <td>60</td>
+    <td><a class="button" href="#">View</a></td>
+  </tr>
+  <tr>
+    <td>Bobby</td>
+    <td>Business-Time</td>
+    <td>555-5556</td>
+    <td>80</td>
+    <td><a class="button" href="#">View</a></td>
+  </tr>
+  <tr>
+    <td>Percy</td>
+    <td>Pierce</td>
+    <td>555-5557</td>
+    <td>95</td>
+    <td><a class="button" href="#">View</a></td>
+  </tr>
 </table>
 			</div>
 		</div>

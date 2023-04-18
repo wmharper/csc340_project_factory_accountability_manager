@@ -1,5 +1,8 @@
 package com.csc340sp23.fam3.EmployeeDB;
 
+import com.csc340sp23.fam3.Inspection.Inspection;
+import com.csc340sp23.fam3.Inspection.InspectionService;
+import com.csc340sp23.fam3.Inspection.InspectionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +21,8 @@ public class EmployeeDBController {
     
     @Autowired
     private EmployeeDBService service;
+    @Autowired
+    private InspectionService ins_service;
 
     @GetMapping("/all")
     public String getAllEmployees(Model model) {
@@ -28,7 +33,15 @@ public class EmployeeDBController {
     @GetMapping("/id={id}")
     public String getEmployee(@PathVariable long id, Model model) {
         model.addAttribute("employeeDB", service.getEmployee(id));
+        model.addAttribute("inspectionList", ins_service.getAllInspections());
         return "fam/employee_detail";
+    }
+    
+    @GetMapping("/sup/id={id}")
+    public String supGetEmployee(@PathVariable long id, Model model) {
+        model.addAttribute("employeeDB", service.getEmployee(id));
+        model.addAttribute("inspectionList", ins_service.getAllInspections());
+        return "fam/employee_detail_s";
     }
 
     @GetMapping("/delete/id={id}")
@@ -59,4 +72,27 @@ public class EmployeeDBController {
         model.addAttribute("employeeDB", service.getEmployee(id));
         return "fam/edit_employee";
     }
+    
+    @GetMapping("/search-employee")
+    public String searchEmloyeeForm(Model model) {
+        return "fam/search_employee";
+    }
+    
+    @GetMapping("/sup/search-employee")
+    public String supSearchEmloyeeForm(Model model) {
+        return "fam/search_employee_s";
+    }
+    
+    @GetMapping("/recalculate/id={id}")
+    public String recalculateScore(@PathVariable long id, Model model) {
+        service.updateScore(service.getEmployeeById(id), ins_service.recalculate(ins_service.getAllInspections()));
+        return "redirect:/employeeDB/all";
+    }
+    
+    @GetMapping("/recalculate/detail/id={id}")
+    public String recalculateScore1(@PathVariable long id, Model model) {
+        service.updateScore(service.getEmployeeById(id), ins_service.recalculate(ins_service.getAllInspections()));
+        return "redirect:/employeeDB/id={id}";
+    }
+    
 }

@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>FAM: Factory Accountability Manager</title>
+	<title>Page Title</title>
 	<style>
 		body {
 			margin: 0;
@@ -88,37 +88,28 @@
 <body>
 	<header>
             <div class="header">
-		<h1>FAM: Add Employee</h1>
+		<h1>FAM: Search Employee Information</h1>
 	</div>
 		<div class="navbar">
 			<a th:href="@{/fam/}" class="button">Log Out</a>
-                        <a th:href="@{/fam/admin_msg}" class="button">Send Message</a>
-                        <a th:href="@{/employeeDB/all}" class="button">Back to Line View</a>
-                        
+                        <a th:href="@{/fam/super_msg}" class="button">Send Message</a>
+                        <a th:href="@{/fam/super_db}" class="button">Back to Line View</a>
 		</div>
 	</header>
 	<main>
 		<div class="container">
 			<div class="wide">
-                            <form action="/employeeDB/create" method="post">
-                                <div class="">
-                                    <label for="first_name">Name, First:</label>
-                                    <input type="text" class="" name="firstName" id="firstName" placeholder="Enter first name"></input>
-                                </div>
-                                <div class="">
-                                    <label for="last_name">Name, Last:</label>
-                                    <input type="text" class="" name="lastName" id="lastName" placeholder="Enter last name"></input>
-                                </div>
-                                <div class="">
-                                    <label for="phone_num">Phone #:</label>
-                                    <input type="text" class="" name="phoneNum" id="phoneNum" placeholder="Enter phone number"></input>
-                                </div>
-                                <div class="">
-                                    <label for="acc_score">Accuracy Score:</label>
-                                    <input type="text" class="" name="accScore" id="accScore" value="-1"></input>
-                                </div>
-                                <button type="submit" class="button">Submit</button>
-                            </form>
+                            <table border="0" cellpadding="10">
+                                <tr> 
+                                    <td>ID:</td>
+                                    <td><input type="text" class="" placeholder="Enter id" /></td>
+                                </tr>
+               
+                                <tr>
+                                    <td colspan="2"><a th:href="@{/employeeDB/sup/id=1}" class="button">Search</a> </td>
+                                </tr>
+
+                            </table>
 			</div>
 			<div class="narrow">
                             <h1>Recent messages:</h1>

@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>FAM: Factory Accountability Manager</title>
+	<title>Page Title</title>
 	<style>
 		body {
 			margin: 0;
@@ -42,12 +42,6 @@
 			margin-left: 50px;
 			margin-right: 50px;
 		}
-                .data {
-                    width: 100%;
-                    background-color: #eee;
-                    padding: 20px;
-                    border-radius: 10px;
-                }
 		.wide {
 			width: 75%;
 			background-color: #eee;
@@ -88,37 +82,24 @@
 <body>
 	<header>
             <div class="header">
-		<h1>FAM: Add Employee</h1>
+		<h1>FAM: Admin Message Center</h1>
 	</div>
 		<div class="navbar">
-			<a th:href="@{/fam/}" class="button">Log Out</a>
-                        <a th:href="@{/fam/admin_msg}" class="button">Send Message</a>
-                        <a th:href="@{/employeeDB/all}" class="button">Back to Line View</a>
-                        
+			<a class="button" href="http://localhost:8080/fam/home.html">Log Out</a>
+			<a class="button" href="http://localhost:8080/fam/admin.html">Back to Line View</a>
+                        <a class="button" href="http://localhost:8080/fam/a_database.html">View Database</a>
 		</div>
 	</header>
 	<main>
 		<div class="container">
 			<div class="wide">
-                            <form action="/employeeDB/create" method="post">
-                                <div class="">
-                                    <label for="first_name">Name, First:</label>
-                                    <input type="text" class="" name="firstName" id="firstName" placeholder="Enter first name"></input>
-                                </div>
-                                <div class="">
-                                    <label for="last_name">Name, Last:</label>
-                                    <input type="text" class="" name="lastName" id="lastName" placeholder="Enter last name"></input>
-                                </div>
-                                <div class="">
-                                    <label for="phone_num">Phone #:</label>
-                                    <input type="text" class="" name="phoneNum" id="phoneNum" placeholder="Enter phone number"></input>
-                                </div>
-                                <div class="">
-                                    <label for="acc_score">Accuracy Score:</label>
-                                    <input type="text" class="" name="accScore" id="accScore" value="-1"></input>
-                                </div>
-                                <button type="submit" class="button">Submit</button>
-                            </form>
+                            <h2>In this container,</h2>
+				<p>The administrator will be able to click a button 
+                                to send a boilerplate message to employees.</p>
+                                <p>They can also compose custom messages via an 
+                                an input box, to enable nuance in communication.</p>
+                                <p>All the functions available to a supervisor will 
+                                be available to an administrator as well.</p>
 			</div>
 			<div class="narrow">
                             <h1>Recent messages:</h1>
@@ -137,8 +118,6 @@
                                 I recommend firing her."</p>
                                 
                                 <p>(received 11:00 AM, Feb 20 2016)</p>
-                                
-                                
 			</div>
 		</div>
 	</main>

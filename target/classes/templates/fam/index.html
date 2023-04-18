@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>FAM</title>
+	<style>
+		/* Navigation styles */
+		nav {   
+                        font-family: 'Comic Sans MS', sans-serif;
+                        color: black;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: chartreuse;
+			height: 50px;
+		}
+		nav a {
+			color: black;
+			text-decoration: none;
+			padding: 0 10px;
+			font-size: 18px;
+			font-weight: bold;
+		}
+
+		/* Banner styles */
+		.banner {
+                        font-family: 'Comic Sans MS', sans-serif;
+			background-image: url('banner.jpg');
+			background-size: cover;
+			height: 300px;
+		}
+		.banner h1 {
+                        font-family: 'Comic Sans MS', sans-serif;
+			color: black;
+			font-size: 48px;
+			text-align: center;
+			padding-top: 100px;
+			text-shadow: 2px 2px #000;
+		}
+
+		/* Main content styles */
+		.main-content {
+                        font-family: 'Comic Sans MS', sans-serif;
+			display: flex;
+			flex-direction: row;
+			margin: 50px auto;
+			max-width: 1000px;
+		}
+		.main-content > div {
+                        font-family: 'Comic Sans MS', sans-serif;
+			padding: 20px;
+                        
+		}
+		.main-content .left {
+			flex-basis: 75%;
+			background-color: #eee;
+		}
+		.main-content .right {
+			flex-basis: 25%;
+			background-color: #ccc;
+		}
+	</style>
+</head>
+<body>
+	<header class="banner">
+		<h1>Factory Accountability Manager</h1>
+	</header>
+	<nav>
+		<a href="http://localhost:8080/fam/index.html">Home</a>
+		<a href="#">About</a>
+		<a href="#">Contact</a>
+	</nav>
+	<main class="main-content">
+		<div class="left">
+			<h2>Left Side Content</h2>
+                        <p>During the time of chimpanzees, I was but a mere monkey,<br>
+                        With butane in my veins, mine aim was at the junkies,<br>
+                        With plastic eyeballs and vegetables spray-painted,<br>
+                        Dog food stalls with beefcake pantyhose tainted.<br>
+                        Headlights extinguished, the car put in neutral,<br>
+                        A stock car afire with a loser and the cruise control,<br>
+                        The baby's in Reno, bathed in vitamin D,<br>
+                        Two couches present, so lie on the love seat, thee.</p>
+		</div>
+		<div class="right">
+			<h2>Right Side Content</h2>
+			<p>One doth insist that I am mad to grieve,<br>
+                        A shotgun marriage, a stain I cannot leave,<br>
+                        Believe not all that thou dost inhale,<br>
+                        Forsooth, a parking ticket and a maggot on thy mail.<br>
+                        So, with mace, shave thy beard in murky skies,<br>
+                        Save all thy food stamps, thou beholdest the trailer park's demise.</p>
+		</div>
+	</main>
+</body>
+</html>

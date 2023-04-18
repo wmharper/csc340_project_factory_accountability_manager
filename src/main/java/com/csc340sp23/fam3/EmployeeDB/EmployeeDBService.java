@@ -14,11 +14,15 @@ public class EmployeeDBService {
     @Autowired
     EmployeeDBRepository repo;
 
-    List<EmployeeDB> getAllEmployees() {
+    public List<EmployeeDB> getAllEmployees() {
         return repo.findAll();
     }
 
     Object getEmployee(long id) {
+        return repo.getEmployeeById(id);
+    }
+    
+    EmployeeDB getEmployeeById(long id) {
         return repo.getEmployeeById(id);
     }
 
@@ -32,5 +36,9 @@ public class EmployeeDBService {
 
     void updateEmployee(EmployeeDB employee) {
         repo.updateEmployee(employee);
+    }
+    
+    void updateScore(EmployeeDB employee, int num) {
+        repo.updateScore(employee, num);
     }
 }
