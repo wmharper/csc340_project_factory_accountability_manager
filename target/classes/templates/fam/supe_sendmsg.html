@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Page Title</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: #fff;
+			font-family: Arial, sans-serif;
+		}
+		.navbar {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: #333;
+			height: 50px;
+			color: #fff;
+		}
+                .header {
+			text-align: center;
+			font-size: 24px;
+			font-weight: bold;
+			padding: 20px;
+			background-color: #333;
+			color: #fff;
+		}
+		.navbar a {
+			margin: 0 10px;
+			color: #fff;
+			text-decoration: none;
+			font-size: 18px;
+			font-weight: bold;
+		}
+		.container {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+			margin-top: 50px;
+			margin-left: 50px;
+			margin-right: 50px;
+		}
+		.wide {
+			width: 75%;
+			background-color: #eee;
+			padding: 20px;
+			border-radius: 10px;
+		}
+		.narrow {
+			width: 25%;
+			background-color: #ccc;
+			padding: 20px;
+			border-radius: 10px;
+		}
+                .buttons {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+		}
+		.button {
+			margin: 0 10px;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			color: #fff;
+			background-color: rgba(0, 0, 0, 0.8);
+			font-size: 18px;
+			font-weight: bold;
+			text-align: center;
+			text-decoration: none;
+			opacity: 0.8;
+			transition: opacity 0.3s ease;
+		}
+		.button:hover {
+			opacity: 1;
+		}
+	</style>
+</head>
+<body>
+	<header>
+            <div class="header">
+		<h1>FAM: Supervisor Message Center</h1>
+	</div>
+		<div class="navbar">
+			<a th:href="@{/fam/}" class="button">Log Out</a>
+			<a th:href="@{/fam/supervisor}" class="button">Back to Line View</a>
+                        <a th:href="@{/fam/super_db}" class="button">View Database</a>
+		</div>
+	</header>
+	<main>
+		<div class="container">
+			<div class="wide">
+                            <h2>In this container,</h2>
+				<p>The supervisor will be able to click a button 
+                                to send a boilerplate message to employees.</p>
+                                <p>They can also compose custom messages via an 
+                                an input box, to enable nuance in communication.</p>
+			</div>
+			<div class="narrow">
+                            <h1>Recent messages:</h1>
+                            
+                            <h2>Message from Bobby Business-Time (Employee)</h2>
+				<p>In this container, the employee is able to view
+                                messages sent to them by supervisors or administrators.</p>
+                                <p>Supervisors will get notifications from employees 
+                                about lines that are malfunctioning. They can view 
+                                the messages here and have the authority to restart lines</p>
+                                <p>"Line 1 is malfunctioning, and has been producing 
+                                a disproportionate amount of faulty products in the last 
+                                30 minutes. "</p>
+                                
+                                <p>(received 10:00 AM, Feb 20 2016)</p>
+                                
+                                <h2>Message from Joe Mama (Administrator)</h2>
+                                <p>Supervisors are also likely to get messages from 
+                                administrators. Administrators have access to data 
+                                crunching methods that will identify problem employees.</p>
+                                <p>After the problem is identified, it is up to the supervisor to contact the employee and warn them,
+                                and get them back on track.</p>
+                                <p>"Sally Salmon has been approving too much 
+                                faulty product. Please contact her and see if the problem can be resolved. "</p>
+                                
+                                <p>(received 9:00 AM, Feb 20 2016)</p>
+			</div>
+		</div>
+	</main>
+</body>
+</html>
