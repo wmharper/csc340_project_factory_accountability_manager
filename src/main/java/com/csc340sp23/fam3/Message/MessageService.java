@@ -14,15 +14,20 @@ public class MessageService {
     @Autowired
     MessageRepository repo;
 
-    List<Message> getAllUsers() {
+    List<Message> getYourMessages() {
         return repo.findAll();
+        //return repo.messagesForYou(String.format("%d", (int)(id)));
     }
 
-    Object getUser(long id) {
-        return repo.messagesForYou(String.format("%d", (int)(id)));
+    Message getMessage(long id) {
+        return repo.messageById(id);
     }
     
     public void send(Message message) {
         repo.sendMessage(message);
+    }
+    
+    public void read(Message message) {
+        repo.readMessage(message);
     }
 }

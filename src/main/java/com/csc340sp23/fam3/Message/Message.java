@@ -5,8 +5,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import java.text.SimpleDateFormat;
-import java.util.TimeZone;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -38,9 +38,10 @@ public class Message {
 
     public Message(String recipient, String messageSender, String messageBody) {
         this.recipient = recipient;
-        SimpleDateFormat time = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-        time.setTimeZone(TimeZone.getTimeZone("UTC"));
-        this.timestamp = time.format(System.currentTimeMillis());
+        LocalDateTime currentTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String formattedTime = currentTime.format(formatter);
+        this.timestamp = formattedTime;
         this.messageSender = messageSender;
         this.readOrUnread = false;
         this.messageBody = messageBody;
