@@ -61,11 +61,7 @@ public class QuickMessageService {
     public void recommendMeeting(QuickMessage qm) {
         qm.setSender(3);
         qm.setReciever(2);
-        qm.setBody("Your database administrator has noticed that "
-                + "the employee assigned to your line has an accuracy score "
-                + "that falls below the necessary standards. It is recommended "
-                + "to meet with them and see if there are issues affecting "
-                + "their performance that can be resolved.");
+        qm.setBody("Your database administrator has noticed that the employee assigned to your line has an accuracy score that falls below the necessary standards. It is recommended to meet with them and see if there are issues affecting their performance that can be resolved.");
         repo.save(qm);
     }
     

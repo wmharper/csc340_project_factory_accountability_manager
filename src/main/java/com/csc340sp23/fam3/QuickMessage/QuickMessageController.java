@@ -57,7 +57,7 @@ public class QuickMessageController {
         return "redirect:/fam/admin_msg";
     }
     
-    @PostMapping("/recommend_meeting")
+    @PostMapping("/rec_meeting")
     public String recommendMeeting(QuickMessage qm){
         qmService.recommendMeeting(qm);
         return "redirect:/fam/admin_msg";
