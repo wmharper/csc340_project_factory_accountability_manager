@@ -108,15 +108,28 @@
         <main>
             <div class="container">
                 <div class="wide">
-                    <h2>In this container,</h2>
-                    <p>the supervisor is capable of seeing the status 
-                        of all the lines he or she is overseeing. </p>
-                    <p>This is where they can click a button that 
-                        will bring the production to a halt, and tell 
-                        employees to restart it.</p>
-                    <p>For our purposes, all this does is 
-                        reseed the generator for the line, in the 
-                        hopes that it will run better after a restart.</p>
+                    <h2>Lines to Control</h2>
+                    <table class="table table-bordered" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th> Line Id </th>
+                                <th> Status </th>
+                                <th> Reset </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="line : ${lines}" th:if="${line.supervisor}==555">
+                                <td th:text="${line.id}" />
+                                <td th:text="${line.lineSeed}" />
+                                <td>
+                                    <form action="/line/reseed" method="post">
+                                        <input type="hidden" name="id" th:value="${line.id}"/>
+                                        <button type="submit" class="button">Reset Line</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
                 <div class="narrow">
                     <h1>Recent messages:</h1>
@@ -135,4 +148,3 @@
             </div>
         </main>
     </body>
-</html>
